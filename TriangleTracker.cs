@@ -16,10 +16,25 @@ class Triangle
 
   public void TriangleChecker()
   {
-    Console.Write(LegOne);
-    Console.Write(LegTwo);
-    Console.Write(LegThree);
-
+    Console.WriteLine(LegOne);
+    Console.WriteLine(LegTwo);
+    Console.WriteLine(LegThree);
+    if (LegOne == LegTwo && LegThree == LegOne)
+    {
+      Console.WriteLine("You made an equalateral.");
+    } 
+    else if ((LegOne + LegTwo <= LegThree) || (LegTwo + LegThree <= LegOne) || (LegOne + LegThree <= LegTwo))
+    {
+      Console.WriteLine("You divided by zero and your triangle imploded into a black hole which is now pulling in everything you know and love into a black oblivion.");
+    }
+    else if ((LegOne == LegTwo && LegTwo != LegThree) || (LegOne == LegThree && LegThree != LegTwo)|| (LegTwo == LegThree && LegThree != LegOne))
+    {
+      Console.WriteLine("Iscoceles is the triangle for you!");
+    }
+    else if (LegOne != LegTwo && LegOne != LegThree && LegTwo != LegThree)
+    {
+      Console.WriteLine("You strike me as a Scalene type of person.");
+    }
   }
   public static void Main()
   {
@@ -34,7 +49,7 @@ class Triangle
     int input3B = int.Parse(input3A);
 
     Triangle triangle = new Triangle(input1B, input2B, input3B);
-    
+    triangle.TriangleChecker();
   }
 
 }
